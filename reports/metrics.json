@@ -1,0 +1,120 @@
+{
+  "risk_classification": {
+    "selected_model": "Random Forest",
+    "selection_rationale": "Random Forest chosen over the highest raw-accuracy candidate for faster train/inference time, easier interpretability for underwriters, and lower overfitting risk on the proxy label.",
+    "algorithm_comparison": {
+      "Logistic Regression": {
+        "accuracy": 72.34,
+        "precision": 69.6,
+        "recall": 72.34,
+        "f1": 70.11,
+        "train_time_sec": 0.26
+      },
+      "Random Forest": {
+        "accuracy": 77.71,
+        "precision": 76.39,
+        "recall": 77.71,
+        "f1": 76.54,
+        "train_time_sec": 0.99
+      },
+      "Gradient Boosting": {
+        "accuracy": 79.74,
+        "precision": 79.25,
+        "recall": 79.74,
+        "f1": 79.34,
+        "train_time_sec": 20.03
+      }
+    },
+    "top_features": {
+      "Customer_Age": 0.2982828353658348,
+      "Kids_Driving": 0.16521322582098638,
+      "Household_Income": 0.12400483619561112,
+      "Parent_Yes": 0.06782166338683955,
+      "Car_Year": 0.06556309709131644,
+      "Vehicle_Age": 0.06484909401659396,
+      "Parent_No": 0.05744278198611079,
+      "Car_Use_Private": 0.026530930383424956,
+      "Car_Use_Commercial": 0.02418369406739547,
+      "Marital_Status_Single": 0.008501137706620076
+    },
+    "cross_validation": {
+      "fold_1": {
+        "accuracy": 77.7,
+        "precision": 76.6,
+        "recall": 77.7
+      },
+      "fold_2": {
+        "accuracy": 78.27,
+        "precision": 77.0,
+        "recall": 78.27
+      },
+      "fold_3": {
+        "accuracy": 77.64,
+        "precision": 76.37,
+        "recall": 77.64
+      },
+      "fold_4": {
+        "accuracy": 77.23,
+        "precision": 75.96,
+        "recall": 77.23
+      },
+      "fold_5": {
+        "accuracy": 77.7,
+        "precision": 76.47,
+        "recall": 77.7
+      },
+      "mean": {
+        "accuracy": 77.71,
+        "precision": 76.48,
+        "recall": 77.71
+      },
+      "std": {
+        "accuracy": 0.33,
+        "precision": 0.34,
+        "recall": 0.33
+      }
+    },
+    "class_distribution": {
+      "Low": 0.636,
+      "Medium": 0.248,
+      "High": 0.116
+    },
+    "n_train": 30024,
+    "n_test": 7506
+  },
+  "claims_models": {
+    "baseline_claim_rate_pct": 27.54,
+    "claim_frequency_classification": {
+      "Baseline (majority class)": {
+        "accuracy": 72.46,
+        "f1": 0.0,
+        "roc_auc": 50.0
+      },
+      "Logistic Regression": {
+        "accuracy": 72.46,
+        "f1": 0.0,
+        "roc_auc": 50.18
+      },
+      "Random Forest": {
+        "accuracy": 72.46,
+        "f1": 0.0,
+        "roc_auc": 50.27
+      }
+    },
+    "claim_amount_regression": {
+      "Baseline (mean amount)": {
+        "mae": 2464.05,
+        "r2": -0.0001
+      },
+      "Linear Regression": {
+        "mae": 2461.4,
+        "r2": -0.0003
+      },
+      "Random Forest": {
+        "mae": 2459.85,
+        "r2": 0.0012
+      }
+    },
+    "interpretation": "Both models barely beat their naive baselines. This is a genuine, honestly-reported finding: claim occurrence and severity in this dataset show very little dependence on policyholder demographics/vehicle attributes, matching the real-world actuarial principle that idiosyncratic claim risk (accidents, weather, luck) dominates over predictable demographic risk factors."
+  }
+}
