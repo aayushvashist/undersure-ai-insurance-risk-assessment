@@ -105,7 +105,7 @@ with col4:
     parent = st.selectbox("Parent", ["Yes", "No"])
 
 if st.button("Assess applicant", type="primary"):
-    reference_year = pd.Timestamp(config.REFERENCE_DATE).year
+    reference_year = date.today().year
     customer_age = reference_year - birth_year
     vehicle_age = reference_year - car_year
 
