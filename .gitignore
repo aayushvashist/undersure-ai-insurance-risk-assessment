@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Trained model binaries are 100% reproducible by running the pipeline
+# (see README) and one of them is ~30MB — keep large binaries out of git
+# history. Figures and metrics.json ARE committed on purpose so the repo
+# and README are self-explanatory on GitHub without cloning + running.
+models/*.joblib
+data/processed/*
+
+.venv/
+venv/
+env/
+.DS_Store
+.streamlit/
